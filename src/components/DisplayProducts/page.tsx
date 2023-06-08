@@ -1,15 +1,8 @@
-"use client";
-
 import { client } from "@/lib/sanityClient";
 import React from "react";
 import { Image as IImage } from "sanity";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Carousel from "../Carousel/page";
 
-import "swiper/css";
-
-
-
-import ProductCard from "../ProductCard/page";
 
 const getProductData = async () => {
   const res = await client.fetch(`*[_type == "product"]{
@@ -49,23 +42,8 @@ const DisplayProducts = async () => {
           </p>
         </div>
 
-   
         <div className="mt-10">
-          <Swiper
-            spaceBetween={-20}
-            slidesPerView={'auto'}
-          
-            className=" max-w-[800px] lg:max-w-[600px] md:w-[400px] sm:w-[250px] xs:w-[250px] "
-          >
-            {data.map((item) => (
-              <SwiperSlide
-                className="w-[400px] h-[400px] md:w-[300px] md:h-[300px] hover:scale-90 transition-all cursor-pointer"
-                key={item._id}
-              >
-                <ProductCard item={item} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <Carousel data={data} />
         </div>
       </section>
     </main>

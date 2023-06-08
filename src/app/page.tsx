@@ -21,6 +21,7 @@ export default async function Home() {
     <>
     <Hero/>
     <Promotion/>
+      {/* @ts-expect-error Server Component */}
     <DisplayProducts/>
     <ProductAbout/>
     <NewsLetter/>

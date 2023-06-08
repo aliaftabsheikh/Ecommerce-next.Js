@@ -4,6 +4,7 @@ import Image from "next/legacy/image";
 import React, { FC } from "react";
 import { urlForImage } from "../../../sanity/lib/image";
 
+
 const ProductCard: FC<{item: any}> = ({item}) => {
 
     const handleAddToCart = async()=>{
