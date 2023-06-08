@@ -1,12 +1,12 @@
-import {} from "@reduxjs/toolkit";
+// import {} from "@reduxjs/toolkit";
 
-const initialState = {
-    value: {
-        
-    }
-}
+// const initialState = {
+//     value: {
 
-const cartSlice = cartSlice({
-    name: 'cart',
-    initialState,
-})
+//     }
+// }
+
+// const cartSlice = cartSlice({
+//     name: 'cart',
+//     initialState,
+// })
