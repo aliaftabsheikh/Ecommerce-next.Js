@@ -2,17 +2,14 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
   theme: {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
       colors: {
@@ -50,6 +47,23 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      screens: {
+        '2xl': { 'max': '1535px' },
+  
+        'xl': { 'max': '1279px' },
+  
+        'lg': { 'max': '1023px' },
+
+        'xlg': {'max': '840px'},
+  
+        'md': { 'max': '767px' },
+  
+        'sm': { 'max': '639px' },
+  
+        'xs': { 'max': '428px'},
+  
+        'min-md': {'min': '767px'} 
+    },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

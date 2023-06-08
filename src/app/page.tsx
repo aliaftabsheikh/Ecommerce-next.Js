@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import { client } from './lib/sanityClient'
+import { DisplayProducts, Footer, Hero, ProductAbout, Promotion, NewsLetter } from "@/components";
+import { client } from '../lib/sanityClient'
 
-export const getProductData = async ()=>{
-  const res = await client.fetch(`*[_type=="product"]
-  `)
-  return res
-} 
+// export const getProductData = async ()=>{
+//   const res = await client.fetch(`*[_type=="product"]
+//   `)
+//   return res
+// } 
 
 interface IProduct {
   title:string,
@@ -16,18 +16,15 @@ interface IProduct {
 
 
 export default async function Home() {
-  const data:IProduct[] = await getProductData();
-  console.log(data);
   
-
   return (
-    <div>
-      {data.map((item)=>(
-        <div key={item._id}>
-          <h1>{item.title}</h1>
-          <p>{item.description}</p>
-        </div>
-      ))}
-    </div>
+    <>
+    <Hero/>
+    <Promotion/>
+    <DisplayProducts/>
+    <ProductAbout/>
+    <NewsLetter/>
+    <Footer/>
+    </>
   )
 }
