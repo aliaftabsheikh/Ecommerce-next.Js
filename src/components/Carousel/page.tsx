@@ -26,7 +26,7 @@ const Carousel = ({data}: {data: IProduct[]}) => {
     spaceBetween={-20}
     slidesPerView={'auto'}
   
-    className=" max-w-[800px] lg:max-w-[600px] md:w-[400px] sm:w-[250px] xs:w-[250px] "
+    className=" max-w-[900px] lg:max-w-[600px] md:w-[400px] xs:w-[250px] "
   >
     {data.map((item) => (
       <SwiperSlide

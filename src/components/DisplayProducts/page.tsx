@@ -1,22 +1,13 @@
+"use client"
+
 import { client } from "@/lib/sanityClient";
-import React from "react";
+import React, { useState } from "react";
 import { Image as IImage } from "sanity";
 import Carousel from "../Carousel/page";
+import { getProducts } from "@/hooks/useProducts";
 
 
-const getProductData = async () => {
-  const res = await client.fetch(`*[_type == "product"]{
-        price,
-        _id,
-        title,
-        image,
-        category -> {
-            name
-        }
-    }`);
 
-  return res;
-};
 
 interface IProduct {
   price: number;
@@ -27,9 +18,11 @@ interface IProduct {
     name: string;
   };
 }
-const DisplayProducts = async () => {
-  const data: IProduct[] = await getProductData();
+const DisplayProducts =  async () => {
+  
+  const data: IProduct[] = await getProducts();
 
+  
   return (
     <main className="flex justify-center mt-12">
       <section className="w-[1248px] px-6 md:px-4 sm:px-2 py-4 ">

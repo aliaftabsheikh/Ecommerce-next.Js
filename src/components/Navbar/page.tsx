@@ -1,8 +1,11 @@
+"use client"
+
 import { Search, ShoppingCart , MenuIcon} from "lucide-react";
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from "../ui/button";
+import { useShoppingCart } from '@/context/ShoppingCartContext';
 
 function Navbar() {
 
@@ -29,6 +32,9 @@ function Navbar() {
             route: '/products'
         },
     ]
+
+
+    const {cartQuantity} = useShoppingCart()
 
   return (
     <header className="w-full flex justify-center ">
@@ -58,7 +64,7 @@ function Navbar() {
       <Link href="/cart" className="p-3 rounded-full bg-gray-300 relative hover:scale-110 transition-all cursor-pointer lg:hidden">
         <ShoppingCart className="" />
         <span className="absolute -top-2 right-0 h-6 w-6 text-center rounded-full bg-[#f02d34] text-white">
-          0
+          {cartQuantity}
         </span>
       </Link>
 

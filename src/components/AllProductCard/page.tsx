@@ -7,19 +7,6 @@ import Link from "next/link";
 
 const AllProductCard: FC<{item: any}> = ({item}) => {
 
-    const handleAddToCart = async()=>{
-        const res = fetch("api/cart", {
-            method: "POST",
-            body: JSON.stringify({
-                product_id : item._id
-            })
-        })
-
-        const result = (await res).json()
-        console.log(result);
-        
-    }
-
 
   return (
     <Link href={`/products/${item.slug.current}`} className="flex items-start justify-center flex-col">

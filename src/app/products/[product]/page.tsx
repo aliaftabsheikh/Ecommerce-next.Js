@@ -1,7 +1,6 @@
 import ProductDetails from "@/components/ProductDetails/page";
 import { client } from "@/lib/sanityClient";
 import { PortableText } from "@portabletext/react";
-import Image from "next/legacy/image";
 import React from "react";
 import { Image as IImage } from "sanity";
 

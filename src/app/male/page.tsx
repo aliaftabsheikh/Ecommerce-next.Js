@@ -1,6 +1,6 @@
 import AllProductCard from "@/components/AllProductCard/page";
 import ProductCard from "@/components/ProductCard/page";
-import {getProducts} from "@/hooks/useProducts";
+import {maleProducts} from "@/hooks/useProducts";
 import { client } from "@/lib/sanityClient";
 import Link from "next/link";
 import React from "react";
@@ -18,8 +18,8 @@ interface IProduct {
   };
 }
 
-const Products = async () => {
-  const data: IProduct[] = await getProducts();
+const Male = async () => {
+  const data: IProduct[] = await maleProducts();
 
   return (
     <main className="flex justify-center mt-12">
@@ -36,4 +36,4 @@ const Products = async () => {
   );
 };
 
-export default Products;
+export default Male;

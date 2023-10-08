@@ -1,9 +1,17 @@
+"use client"
+
 import React from 'react'
 import { urlForImage } from "../../../sanity/lib/image";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/legacy/image";
+import { useShoppingCart } from '@/context/ShoppingCartContext';
 
+
+type CartItemProps = {
+  id: number
+  quantity: number
+}
 
 const sizes = [
     {
@@ -25,6 +33,23 @@ const sizes = [
   
 
 const ProductDetails = ({data}: any) => {
+
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+  } = useShoppingCart()
+
+  console.log("ID ===========> ", data._id);
+  
+
+  const quantity = getItemQuantity(data._id)
+  
+
+
+  console.log("Qantity", quantity);
+  
+
   return (
     <div className="flex flex-row gap-x-6 lg:flex-row-reverse lg:justify-between ">
     <div className="">
@@ -76,26 +101,30 @@ const ProductDetails = ({data}: any) => {
               className="w-12 h-12 flex items-center justify-center  bg-gray-200 shadow-2xl rounded-full cursor-pointer text-gray-800
             text-xl
             "
-            >
+            onClick={() => decreaseCartQuantity(data._id)}>
               -
             </button>
-            0
+            {quantity}
             <button
               className="w-12 h-12 flex items-center justify-center  bg-gray-200 shadow-2xl rounded-full cursor-pointer text-gray-800
             text-xl border-black
             "
+            onClick={() => increaseCartQuantity({...data})}
             >
               +
             </button>
           </div>
         </div>
         <div className="flex items-center gap-x-6 mt-6 flex-wrap">
-          <Button className="space-x-2 rounded-none">
+          <Button className="space-x-2 rounded-none" onClick={() => increaseCartQuantity({...data})}>
             <ShoppingCart className="mr-2" />
             Add to Cart
           </Button>
 
-          <p className="text-3xl font-bold tracking-wider">${data.price}:00</p>
+          <p className="text-3xl font-bold tracking-wider">
+        
+            ${quantity === 0 ? data.price : data.price * quantity}
+</p>
         </div>
       </div>
     </div>
